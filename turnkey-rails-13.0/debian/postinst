@@ -1,0 +1,13 @@
+#!/bin/bash
+
+WEBROOT=/var/www/railsapp
+HARDWIRED_SECRET=30db5ea
+
+CONF=$WEBROOT/config/initializers/secret_token.rb
+if [ -e $CONF ] && grep -q $HARDWIRED_SECRET $CONF; then
+	echo "Security hotpatch: regenerating hardwired secret in $CONF"
+	sed  -i "s/'$HARDWIRED_SECRET.*'/'$(mcookie)$(mcookie)'/" $CONF
+	touch $WEBROOT/tmp/restart.txt
+fi
+
+exit 0
