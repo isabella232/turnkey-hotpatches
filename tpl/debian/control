@@ -7,6 +7,6 @@ Build-Depends: debhelper (>> 4.2.0)
 Standards-Version: 3.6.1
 
 Package: CODENAME
-Architecture: all
+Architecture: any
 Section: misc
 Description: CODENAME security hotpatch
