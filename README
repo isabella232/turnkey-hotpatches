@@ -1,0 +1,18 @@
+Example::
+
+    cp -a tpl/ turnkey-rails-13.0
+    cd turnkey-rails-13.0
+
+    # add hotpatch version to the changelog (1 -> 2)
+    vim $apps/rails/changelog
+    cp $apps/rails/changelog debian/changelog
+
+    head --lines 6 changelog 
+    turnkey-rails-13.0 (2) turnkey; urgency=low
+
+      * Regenerate Rails 4 hardwired secret in /var/www/railsapp
+
+       -- Liraz Siri <alon@turnkeylinux.org>  Fri, 20 Jun 2014 11:22:43
+       +0300
+
+    sed -i 's/CODENAME/turnkey-rails-13.0/' control

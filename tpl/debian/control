@@ -1,4 +1,4 @@
-Source: turnkey-hotpatch
+Source: CODENAME
 
 Section: misc
 Priority: optional
@@ -6,7 +6,7 @@ Maintainer: Alon Swartz <alon@turnkeylinux.org>
 Build-Depends: debhelper (>> 4.2.0)
 Standards-Version: 3.6.1
 
-Package: turnkey-hotpatch
+Package: CODENAME
 Architecture: all
 Section: misc
 Description: CODENAME security hotpatch
