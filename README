@@ -1,18 +1,23 @@
+Guidelines for hotpatches
+=========================
+
+1) Hotpatches should only fix critical issues. 
+
+2) First do no harm: 
+
+   Test the hotpatch on an unpatched deployment.  
+
+3) Do the simplest, smallest possible thing that could possibly work:
+
+   Hotpatches should be as specific as possible. The user may have
+   already changed the configuration, making the hotpatch unnecessary
+   and maybe even harmful.
+
+4) Hotpatches should be idempotent. 
+
+   That means if you install a hotpatch twice it doesn't break the
+   system the second time around.
+
 Example::
-
-    cp -a tpl/ turnkey-rails-13.0
-    cd turnkey-rails-13.0
-
-    # add hotpatch version to the changelog (1 -> 2)
-    vim $apps/rails/changelog
-    cp $apps/rails/changelog debian/changelog
-
-    head --lines 6 changelog 
-    turnkey-rails-13.0 (2) turnkey; urgency=low
-
-      * Regenerate Rails 4 hardwired secret in /var/www/railsapp
-
-       -- Liraz Siri <alon@turnkeylinux.org>  Fri, 20 Jun 2014 11:22:43
-       +0300
-
-    sed -i 's/CODENAME/turnkey-rails-13.0/' control
+    
+    ./new 
