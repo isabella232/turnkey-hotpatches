@@ -1,0 +1,19 @@
+#!/bin/sh
+
+patch=$1
+
+if [ -z "$patch" ]; then
+    cat<<EOF
+Syntax: $0 patchname
+Builds a hotpatch
+Example:
+
+    $0 turnkey-rails-13.0
+
+EOF
+    exit 1
+fi
+
+set -x
+cd $patch
+dpkg-buildpackage -uc -us -b
