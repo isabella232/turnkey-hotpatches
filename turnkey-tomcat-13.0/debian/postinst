@@ -1,0 +1,11 @@
+#!/bin/sh
+
+JAVA_HOME="/usr/lib/jvm/java-6-openjdk-amd64"
+
+# only run if configuration hasn't been fixed yet
+if ! grep -q ^JAVA_HOME /etc/default/tomcat6; then
+	sed -i "s|JAVA_HOME=\"/usr/lib/jvm/\"|JAVA_HOME=\"$JAVA_HOME\"|" /etc/environment
+	echo JAVA_HOME=\"$JAVA_HOME\" >> /etc/default/tomcat6
+	/etc/init.d/tomcat6 restart
+fi
+exit 0
