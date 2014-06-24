@@ -1,0 +1,34 @@
+#!/bin/bash
+
+codename=$1
+version=$2
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+cat<<EOF
+syntax: $0 <codename> <version>
+Creates an empty hotpatch from 'tpl'
+Examples:
+    
+    $0 tomcat 13.0
+
+EOF
+    exit 1
+fi
+
+patchname="turnkey-$codename-$version"
+if [ -d $patchname ]; then
+    echo "error: $patchname already exists"
+    exit 1
+fi
+
+cp -a tpl $patchname
+
+cd $patchname
+
+sed -i "s/CODENAME/$patchname/g" debian/control
+cp /turnkey/fab/products/turnkey/$codename/changelog debian/changelog
+
+cd debian/
+dch -i -u critical --distribution turnkey --force-distribution
+
+echo created $patchname
