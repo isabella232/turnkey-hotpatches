@@ -1,0 +1,9 @@
+#!/bin/sh
+
+rm -f *.changes *.deb
+
+for f in */debian; do
+    bn=$(basename $(dirname $f))
+    rm -rf $f/*.log $f/files $f/*.substvars $f/$bn
+done
+    
