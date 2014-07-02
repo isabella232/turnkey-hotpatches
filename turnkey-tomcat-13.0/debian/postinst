@@ -1,6 +1,8 @@
 #!/bin/sh
 
-JAVA_HOME="/usr/lib/jvm/java-6-openjdk-amd64"
+[ -e /usr/lib/jvm/java-6-openjdk-i386 ] && JVM=java-6-openjdk-i386
+[ -e /usr/lib/jvm/java-6-openjdk-amd64 ] && JVM=java-6-openjdk-amd64
+JAVA_HOME="/usr/lib/jvm/$JVM"
 
 # only run if configuration hasn't been fixed yet
 if ! grep -q ^JAVA_HOME /etc/default/tomcat6; then
