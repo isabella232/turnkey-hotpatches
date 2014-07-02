@@ -6,6 +6,6 @@ Build-Depends: debhelper (>> 4.2.0)
 Standards-Version: 3.6.1
 
 Package: turnkey-tomcat-apache-13.0
-Architecture: all
+Architecture: any
 Section: misc
 Description: turnkey-tomcat-apache-13.0 security hotpatch
