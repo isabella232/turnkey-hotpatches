@@ -1,0 +1,11 @@
+Source: turnkey-canvas-13.0
+Section: misc
+Priority: optional
+Maintainer: Alon Swartz <alon@turnkeylinux.org>
+Build-Depends: debhelper (>> 4.2.0)
+Standards-Version: 3.6.1
+
+Package: turnkey-canvas-13.0
+Architecture: any
+Section: misc
+Description: turnkey-canvas-13.0 security hotpatch

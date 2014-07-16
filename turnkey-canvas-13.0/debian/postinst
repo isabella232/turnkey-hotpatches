@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+# update redis-server to 2.6 from Wheezy backports
+if dpkg-query -f '${Version}' -W redis-server | grep -q ^2:2.4; then
+	echo "detected redis-server 2.4, installing redis-server 2.6 from wheezy-backports"
+	set -x
+
+	echo -e '# Backports repository\ndeb http://ftp.debian.org/debian wheezy-backports main' >> /etc/apt/sources.list.d/wheezy-backports.list
+	apt-get update
+	DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::Options::=--force-confdef -o DPkg::Options::=--force-confold  -t wheezy-backports install redis-server
+	set +x
+
+fi
+
+set -x
+chown -R www-data:www-data /var/www/canvas/tmp/
+
+exit 0
