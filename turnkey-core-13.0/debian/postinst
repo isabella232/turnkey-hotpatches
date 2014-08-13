@@ -1,0 +1,14 @@
+#!/bin/bash
+
+keyfile=/etc/ssh/ssh_host_ecdsa_key
+if ssh-keygen -l -f $keyfile | grep -q 'root@fab-dev'; then
+
+	echo "regenerating ECDSA key"
+
+	rm -f $keyfile*
+	ssh-keygen -q -f $keyfile -N '' -t ecdsa
+	/etc/init.d/ssh reload
+
+fi
+
+exit 0
