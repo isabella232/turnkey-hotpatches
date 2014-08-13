@@ -1,6 +1,8 @@
 turnkey-core-13.0 (2) turnkey; urgency=critical
 
-  * Regenerate SSH ECDSA key (new in Debian Wheezy)
+  * Regenerate stale SSH ECDSA key (new in Debian Wheezy)
+
+    Thanks to Peter Lieven from KAMP.de for reporting this.
 
  -- Liraz Siri <liraz@turnkeylinux.org>  Wed, 13 Aug 2014 17:13:37 +0300
 
