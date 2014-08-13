@@ -19,6 +19,8 @@ Guidelines for hotpatches
    That means if you install a hotpatch twice it doesn't break the
    system the second time around.
 
+5) Hotpatches should work on all architectures
+
 How to create a new hotpatch
 ============================
 
