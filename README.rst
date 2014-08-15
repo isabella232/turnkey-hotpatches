@@ -21,6 +21,8 @@ Guidelines for hotpatches
 
 5) Hotpatches should work on all architectures
 
+6) Hotpatches should preferably work on custom tkldev integrations.
+
 How to create a new hotpatch
 ============================
 
